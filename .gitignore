@@ -12,3 +12,5 @@ Servers/
 .settings/
 .recommenders/
 *.vsd
+*.docx
+snapshots/

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Home</title>
+<style type="text/css">
+.inputsize {
+	width: 200px;
+	height: 30px;
+}
+.custom-font {
+	font-family: Comic Sans MS;
+}
+</style>
+</head>
+<body style="font-family: Comic Sans MS">
+	<h1 id="home-page-heder">Calculator</h1>
+	<form action="/calculate" method="post">
+		<div id="operand1_container">
+			<label id="operand1_label" style="padding-right: 3px;">Operand 1:</label>
+			<input type="text" name="first_operand" class="inputsize" />
+		</div>
+		<br/>
+		<div id="operand2_container">
+			<label id="operand2_label">Operand 2:</label>
+			<input type="text" name="second_operand" class="inputsize" />
+		</div>
+		<br/>
+		<div id="operation_container">
+			<label id="operation_label" style="padding-right: 4px;">Operation:</label>
+			<select name="operation" class="inputsize custom-font">
+				<option value='' selected="selected">Specify operation</option>
+				<option value="addition">Addition (+)</option>
+				<option value="subtraction">Subtraction (-)</option>
+				<option value="multiplication">Multiplication (*)</option>
+				<option value="division">Division (/)</option>
+			</select>
+		</div>
+		<br/>
+		<div id="calculate_button_container" style="padding-left: 88px;">
+			<input type="submit" value="Calculate" class="custom-font" />
+		</div>
+	</form>
+</body>
+</html>
