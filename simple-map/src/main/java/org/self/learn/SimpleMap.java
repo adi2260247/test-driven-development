@@ -1,21 +1,20 @@
 package org.self.learn;
 
 public class SimpleMap<K, V> {
-	private KeyValuePair<K, V>[] keyValuePair;
 	private int size;
-	
+	private KeyValuePair<K, V>[] keyValuePair;
+
 	@SuppressWarnings("unchecked")
 	public SimpleMap() {
 		this.size = 0;
 		this.keyValuePair = (KeyValuePair<K, V>[]) new KeyValuePair[5];
-		
 	}
-	
+
 	public int size() {
 		return this.size;
 	}
 
-	public void save(K key, V value) throws DuplicateKeyFoundException {
+	public void add(K key, V value) throws DuplicateKeyFoundException {
 		if(containsKey(key)) {
 			throw new DuplicateKeyFoundException();
 		}
@@ -31,12 +30,12 @@ public class SimpleMap<K, V> {
 		}
 		
 	}
-	
-	public V get(K key) throws NoSuchKeyException {
+
+	public V get(K key) throws NoSuchKeyFoundException {
 		KeyValuePair<K, V> keyValPair;
 		
 		if(!containsKey(key)) {
-			throw new NoSuchKeyException();
+			throw new NoSuchKeyFoundException();
 		}
 		
 		for(int i=0;i<size;i++) {
@@ -59,7 +58,7 @@ public class SimpleMap<K, V> {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -76,11 +75,11 @@ public class SimpleMap<K, V> {
 		return false;
 	}
 
-	public void remove(K key) throws NoSuchKeyException {
+	public void remove(K key) throws NoSuchKeyFoundException {
 		KeyValuePair<K, V> keyValPair;
 		
 		if(!containsKey(key)) {
-			throw new NoSuchKeyException();
+			throw new NoSuchKeyFoundException();
 		}
 		
 		for(int i=0;i<size;i++) {
